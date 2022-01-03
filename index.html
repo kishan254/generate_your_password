@@ -1,44 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-<header class = "header">Generate your Password</header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Password Generator</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
 
-<main>
-    <h1>C'mon Let's make a password for you!</h1>
+        <main class="wrapper">
 
-    <section>
+            <header>
+                <h1>Password Generator</h1>
+            </header>
 
-        <form class = "form">
+            <section class="card">
 
-            <h2>Generate Password</h2>
+                <article class="card-header">
+                    <h2>Generate a Password</h2>
+                    <p>For us to create a password for you, select what you would like your password to have from the check boxes below. Thereafter choose the number of characters you wish your password to be, lastly, hit the "Generate Password" to see the magic!</p>
+                </article>
+                
+                <section style= "display: flex; flex-direction: column; align-items: center;">\
+                    <div>
+                        <label for="input-symbol">symbol</label>
+                        <input id="input-symbol" type="checkbox"/>
+                    </div>
 
-        <!--This is where the user types the password-->
+                    <div>
+                        <label for="input-uppercase">uppercase</label>
+                        <input id="input-uppercase" type="checkbox"/>
+                    </div>
 
-            <p> Please type your password here</p>
+                    <div>
+                        <label for="input-lowercase">lowercase</label>
+                        <input id="input-lowercase" type="checkbox"/>
+                    </div>
+                    <div>
+                        <label for="input-number">number</label>
+                        <input id="input-number" type="checkbox"/>
+                    </div>
+                </section>
 
-        <!--The button the user clicks to generate the password-->
+                <section class="card-footer">
 
-            <button class = "button">Generate Password</button>
+                    <div>
+                        <input
+                            type="range"
+                            min="8"
+                            max="128"
+                            id="input-password-range"
+                        />
+                        <span id="span-password-length">68</span>
+                    </div>
+                    
+                    <button id="button-generate" class="btn">
+                        Generate Password
+                    </button>
+                </section>
+                
+                <footer class="card-body">
+                    <textarea
+                        readonly
+                        id="textarea-password"
+                        placeholder="Your Secure Password"
+                        aria-label="Generated Password">
+                    </textarea>
+                </footer>
+            </section>
 
-        </form>
+            <footer style="text-align: center; padding: 30px; margin: 20px; height: 30px; width: auto; color: blueviolet;">Designed by Kishan Gosrani</footer>
 
-    </section>
+        </main>
 
-</main>
-    
+        <script src="script.js"></script>
 
+    </body>
 
-
-
-<footer class = "footer">Designed by Kishan Gosrani 2021</footer>
-
-<script src="./javascript.js"></script>
-</body>
 </html>

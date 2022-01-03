@@ -6,4 +6,3 @@ Beginner skills of functions are elaborated in this project
 URL for Github
 
 URL for Live
-
