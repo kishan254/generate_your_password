@@ -1,5 +1,4 @@
 //........................................................................................................................................
-
 // PLAN: generate a password
 
 // when user click on the button
@@ -24,45 +23,42 @@
 // we will generate the password
 //........................................................................................................................................
 
-
 // Define our constants and variables
 
-let buttonGenerate = document.getElementById("button-generate");
-const inputPasswordRange = document.getElementById("input-password-range");
-const spanPasswordLength = document.getElementById("span-password-length");
+let buttonGenerate = document.getElementById("button-generate"); 
+var inputPasswordRange = document.getElementById("input-password-range");
+var spanPasswordLength = document.getElementById("span-password-length");
 const inputSymbol = document.getElementById("input-symbol");
 const inputUppercase = document.getElementById("input-uppercase");
 const inputLowercase = document.getElementById("input-lowercase");
 const inputNumber = document.getElementById("input-number");
 const textareaPassword= document.getElementById('textarea-password');
 
-//bank of input for random char
+//bank of input for random characters
 
 const numbers = "0123456789";
 const lowercase = "abcdefghijklmnopqrstuvwxyz";
 const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const symbol = "!@#$%^&*()*_";
 
-
+//Event listener for the click on the range of characters
 
 inputPasswordRange.addEventListener("input", function (event) {
     const passwordLength = inputPasswordRange.value;
 
-    // update the span pass length to show current password length
+    // update the span pass length to show current password length the user has chosen
     spanPasswordLength.textContent = passwordLength;
 });
 
-// when user click on the button
+// Event listener for click on the Generate Password button
+
 buttonGenerate.addEventListener("click", function (event) {
+    
     // we will ask the user to enter a password length
     // 8- 128 chars, otherwise we should yell at the user
-
     // ask to include symbols
-
     // ask to include uppercase
-
     // ask to include lowercase
-
     // ask to include numbers 
     const passwordLength = Number(inputPasswordRange.value);
     const hasNumber = inputNumber.checked;
@@ -70,19 +66,16 @@ buttonGenerate.addEventListener("click", function (event) {
     const hasUppercase = inputUppercase.checked;
     const hasLowercase = inputLowercase.checked;
 
-    // if the user didnt choose any of the options
-    const userDidntChooseAnyOption =
-        !hasNumber && !hasSymbol && !hasUppercase && !hasLowercase;
+    // if the user did not choose any of the options then prompt user immediately
+
+    const userDidntChooseAnyOption = !hasNumber && !hasSymbol && !hasUppercase && !hasLowercase;
 
     if (userDidntChooseAnyOption) {
-        // we will yell at the user
-        alert("PLEASE SELECT ONE OR MORE BOXES!");
+        alert("PLEASE SELECT ONE OR MORE BOXES!"); //alert box
         return;
     }
-    // user has selected at least 1 option
+    // user has selected at least 1 option. We will generate the password.
 
-    // once we got all the inputs,
-    // we will generate the password
     let characterSet = "";
 
     if (hasNumber) {
@@ -97,17 +90,18 @@ buttonGenerate.addEventListener("click", function (event) {
     if (hasLowercase) {
         characterSet = characterSet + lowercase;
     }
-    
+
     // accumulator
+
     let password = "";
     for (let index = 0; index < passwordLength; index++) {
-      // grab a random char from the bank
-      const randomCharacter = characterSet[ Math.floor(Math.random() * characterSet.length) ]
+    
+    // grab a random char from the bank
+      
+        const randomCharacter = characterSet[ Math.floor(Math.random() * characterSet.length) ]
 
-      // add to password
-      password = password + randomCharacter;
-      
-      
+    // add to password
+        password = password + randomCharacter;
     }
     
     // once we got the password
@@ -116,18 +110,3 @@ buttonGenerate.addEventListener("click", function (event) {
     // put the password in the box (DOM)
     textareaPassword.textContent = password;    
 });
-
-// // Assignment Code
-// var generateBtn = document.querySelector("#generate");
-
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
