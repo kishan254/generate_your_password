@@ -1,7 +1,7 @@
 # generate_your_password
 This is a generic password generator 
 
-Beginner skills of functions, variable, contanst and if statements are elaborated in this project;
+Beginner skills of functions, variables, constants and "if" statements are elaborated in this project;
 
 URL for Github repo: https://github.com/kishan254/generate_your_password
 
